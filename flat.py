@@ -33,12 +33,12 @@ class MyTopo( Topo ):
             edgeSwitch = self.addSwitch('e{}'.format(i+1))
             for j in range(h):
                 host = self.addHost('h{}{}'.format(i+1, j+1))
-                self.addLink(host, edgeSwitch, bw=10)
-            self.addLink(edgeSwitch, aggSwitches[i // 2], bw=10)
+                self.addLink(host, edgeSwitch)
+            self.addLink(edgeSwitch, aggSwitches[i // 2])
 
         # Connect aggregation switches to core switches
         for i in range(n):
-            self.addLink(aggSwitches[i], coreSwitches[i // (n // 2)], bw=20)
+            self.addLink(aggSwitches[i], coreSwitches[i // (n // 2)])
 
 
 
